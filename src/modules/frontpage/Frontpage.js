@@ -6,7 +6,6 @@ const FrontPage = () => {
   const startingData = players.map((name) => {
     return { name, score: 1 }
   })
-  console.log(startingData)
   const [gameData, setGameData] = useState(startingData)
 
   const updateGameData = (operator, name) => {
@@ -31,11 +30,9 @@ const FrontPage = () => {
       if (a.score > b.score) {
         return -1
       }
-      console.log(3)
       return 0
     })
   }
-  console.log(sorted)
   return (
     <div className="App">
       {winner === undefined && (
@@ -51,7 +48,7 @@ const FrontPage = () => {
               3: '🏅',
             }
             return (
-              <div className={`pos pos-${index}`}>
+              <div key={index} className={`pos pos-${index}`}>
                 {medals[index]} {data.name}
               </div>
             )
