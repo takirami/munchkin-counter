@@ -1,41 +1,41 @@
-import List from "../../components/List";
-import { useState } from "react";
+import List from '../../components/List'
+import { useState } from 'react'
 
 const FrontPage = () => {
-  const players = ["Nette", "Hanna", "Basse", "Jonas"];
+  const players = ['Nette', 'Hanna', 'Basse', 'Jonas']
   const startingData = players.map((name) => {
-    return { name, score: 1 };
-  });
-  console.log(startingData);
-  const [gameData, setGameData] = useState(startingData);
+    return { name, score: 1 }
+  })
+  console.log(startingData)
+  const [gameData, setGameData] = useState(startingData)
 
   const updateGameData = (operator, name) => {
-    const newData = gameData;
-    let currentPlayerIndex = newData.findIndex((data) => data.name === name);
+    const newData = gameData
+    let currentPlayerIndex = newData.findIndex((data) => data.name === name)
     const newPlayerScore =
-      operator === "ADD"
+      operator === 'ADD'
         ? newData[currentPlayerIndex].score + 1
-        : newData[currentPlayerIndex].score - 1;
-    newData[currentPlayerIndex].score = newPlayerScore;
-    setGameData([...newData]);
-  };
+        : newData[currentPlayerIndex].score - 1
+    newData[currentPlayerIndex].score = newPlayerScore
+    setGameData([...newData])
+  }
   const winner = gameData.find((data) => {
-    return data.score > 9;
-  });
-  const sorted = [...gameData];
+    return data.score > 9
+  })
+  const sorted = [...gameData]
   if (winner !== undefined) {
     sorted.sort((a, b) => {
       if (a.score < b.score) {
-        return +1;
+        return +1
       }
       if (a.score > b.score) {
-        return -1;
+        return -1
       }
-      console.log(3);
-      return 0;
-    });
+      console.log(3)
+      return 0
+    })
   }
-  console.log(sorted);
+  console.log(sorted)
   return (
     <div className="App">
       {winner === undefined && (
@@ -45,27 +45,27 @@ const FrontPage = () => {
         <div className="winner">
           {sorted.map((data, index) => {
             let medals = {
-              0: "🥇",
-              1: "🥈",
-              2: "🥉",
-              3: "🏅",
-            };
+              0: '🥇',
+              1: '🥈',
+              2: '🥉',
+              3: '🏅',
+            }
             return (
               <div className={`pos pos-${index}`}>
                 {medals[index]} {data.name}
               </div>
-            );
+            )
           })}
           <button
             className="reset"
-            onClick={() => updateGameData("REMOVE", winner.name)}
+            onClick={() => updateGameData('REMOVE', winner.name)}
           >
             back
           </button>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default FrontPage;
+export default FrontPage

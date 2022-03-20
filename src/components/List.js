@@ -1,8 +1,7 @@
-import React from "react";
-import Card from "./Card";
+import Card from './Card'
 
 const List = ({ data, updateGameData }) => {
-  console.log("List", data);
+  console.log('List', data)
   return (
     <div className="list">
       {data.map((data, index) => (
@@ -11,7 +10,7 @@ const List = ({ data, updateGameData }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default List;
+export default List

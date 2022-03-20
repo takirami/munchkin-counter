@@ -1,8 +1,7 @@
-import React from "react";
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import FrontPage from "./modules/frontpage/Frontpage";
-import Admin from "./modules/admin/Admin";
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import FrontPage from './modules/frontpage/Frontpage'
+import Admin from './modules/admin/Admin'
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
       <Route path="/" element={<FrontPage />} />
       <Route path="admin" element={<Admin />} />
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App
